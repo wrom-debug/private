@@ -52,7 +52,7 @@ drop database wormdb;
 ###添加表
 
 ~~~
-create table maoyan_1 (列内容 );
+create table maoyan_1 (列内容 )type=引擎名称;
 ~~~
 ###查看数据库中的表
 ~~~
@@ -154,4 +154,8 @@ mysqldump -u用户名 -p 数据库名称 >路径.sql
 ###导入
 ~~~
 mysql -u用户名 -p可以名称 < 库路径.sql
+~~~
+或者
+~~~
+source [sql文件路径]
 ~~~
