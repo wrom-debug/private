@@ -20,6 +20,24 @@ mysql -h地址 -u账户 -p密码
 ~~~
 mysql> update mysql.user set authentication_string=password('new passwd') where user='root' and Host ='localhost';
 ~~~
+##用户操作
+###添加一个用户
+~~~
+create user "用户名"@"地址"   identified by "密码"    #地址栏可以使用%来代表任意网段
+~~~
+###修改密码
+~~~
+set password=password("设置的密码");
+~~~
+###设置权限
+~~~
+grant 权限类型[all全部      select 查       insert 写入 ] on 数据库.表 to 用户名@地址;
+~~~
+可以再设置权限时直接补上密码部分，来实现创建用户
+###刷新用户配置
+~~~
+flush privileges;
+~~~
 ##数据库操作
 ###查看数据库
 ~~~
