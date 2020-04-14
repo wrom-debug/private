@@ -150,10 +150,11 @@ select 表名.字段 from 表名 where 条件
 ###备份
 ~~~
 mysqldump -u用户名 -p 数据库名称 >路径.sql
+mysqldump -u用户名 -p 数据库名称  数据表>路径.sql
 ~~~
 ###导入
 ~~~
-mysql -u用户名 -p可以名称 < 库路径.sql
+mysql -u用户名 -p数据库名称 < 库路径.sql
 ~~~
 或者
 ~~~
