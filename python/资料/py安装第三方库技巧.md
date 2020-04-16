@@ -3,9 +3,9 @@
 ## 对与解决pip install 安装第三方库时出现Read timed out.的问题
 
 * 由于pip install安装对连接外网的网速有一定要求所有需要是用代理
-原：`pip intall 所需的第三方库的名称`
+原：`pip install 所需的第三方库的名称`
 
-改为：`pip intall  --index-url https://pypi.douban.com/simple 所需的第三方库的名称`
+改为：`pip install  --index-url https://pypi.douban.com/simple 所需的第三方库的名称`
 
 即可解决
 
