@@ -72,6 +72,11 @@ drop database wormdb;
 ~~~
 create table maoyan_1 (列内容 )type=引擎名称;
 ~~~
+Innodb：（数据和索引存一起）数据索引/表结构（事务、行级锁、表级锁、外键）
+Myisam：（数据和索引分开存储）数据/索引/表结构（支持表级锁）
+Menory：（数据在内存上）表结构
+
+
 ###查看数据库中的表
 ~~~
 show tables;
