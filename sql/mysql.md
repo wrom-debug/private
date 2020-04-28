@@ -115,6 +115,7 @@ update 表名 set 字段=值;
 ###删除
 ~~~
 delete from 表名 where 条件;
+truncate table 表名;    #清空表，和自增偏移量
 ~~~
 ##字段操作
 ###添加
@@ -143,18 +144,60 @@ alter table 旧表名 rename 新表名
 ###模糊匹配
 ~~~
 select 字段 form 表名 where 字段 like 条件
+select 字段 form 表名 where 字段 regexp 条件（正则表达式）
 ~~~
 模糊查询用%代替任何字符
-条件可以为正则表达式
 ###排序
 ~~~
 selcet 字段 from 表名 where 条件 order by 字段 [ASC/DESC]
 ~~~
 ASC：升序
 DESC：降序
+###字段重命名
+~~~
+select 字段 as 新名称 from 表;
+select 字段 新名称 from 表;
+~~~
+###字段内容去重
+~~~
+select distinct 字段 from 表;   #如果多字段就联合去重 类似联合唯一
+~~~
+###拼接函数
+~~~
+select concat(字段1，“：”，字段2) from 表;    #可以将字段1和2的内容进行类似字符串拼接
+select concat(“：”，字段1，字段2) from 表;  
+~~~
+###条件判断
+~~~
+select (case when 条件 then 执行 else 执行2 end) from 表;
+~~~
+###范围
+~~~
+between 数值1 and 数值2 #再数值1和数值2之间
+in (数值1,数值2) 只匹配数值1和数值2
+~~~
+###分组
+~~~
+select  聚合函数（字段）from 表 group by 字段 #将记录按照字段的不同值分组，可以配合聚合函数统计每组的数量，最大，最小，平均等值
+~~~
+count（）求个数
+max（）最大值
+min（）最小值
+sum（）求和
+avg（）求平均
+###显示分组内的所有内容
+~~~
+select 之段1  group_concat(字段2) ftom 表 group by 字段1 ;      #将记录按字段1分组，并显示每组中字段2的记录
+~~~
+###过滤
+~~~
+select 之段1  group_concat(字段2) ftom 表 group by 字段1  having max(字段3)>100;  
+~~~
+having 与where一样，不过是对组进行过滤，后面一般更聚合的判断
 ###分页
 ~~~
-select 字段 from  表名 where 条件 limit 数量
+select 字段 from  表名 where 条件 limit  开始记录，数量
+limit n offset m 是一样的
 ~~~
 显示多少条
 ###联合查询
