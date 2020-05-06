@@ -207,7 +207,12 @@ select 字段 from 表名 where 条件 union [all] select 字段 from 表名 whe
 all，将重复的记录重复显示
 
 两次查询的显示字段要一样
-###内连接
+
+###多表查询
+~~~
+select 表名1.字段1 ，表名2.字段2 from 表名1 ，表明2where 条件
+~~~
+###内连接（一般使用内连接方式，不使用多表查询）
 ~~~
 select * from 表1 inner join 表2 on 条件/（表1.字段1=表2.字段2）    #显示表1与表2中字段1和2都有的记录
 ~~~
@@ -217,10 +222,7 @@ select * from 表1 left join 表2 on 条件
 select * from 表1 right join 表2 on 条件
 select * from 表1 full join 表2 on 条件(mysql没有这个)
 ~~~
-###多表查询
-~~~
-select 表名.字段 from 表名 where 条件
-~~~
+
 ###子查询
 可以将一个slect 查询的结果用括号包起来表示结果，用在另一个select查询中的条件中，括号中的内容只能是一列
 ~~~
