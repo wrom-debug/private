@@ -232,8 +232,9 @@ select * from 表1 where 字段1 in (selct 字段2 from 表2  where 条件);
 在命令行中输入
 ###备份
 ~~~
-mysqldump -u用户名 -p 数据库名称 >路径.sql
-mysqldump -u用户名 -p 数据库名称  数据表>路径.sql
+mysqldump -u用户名 -p 数据库名称 >路径.sql      #备份数据库下的所有表
+mysqldump -u用户名 -p 数据库名称  数据表>路径.sql       #备份单个表
+mysqldump -u用户名 -p databases 数据库名称  数据表>路径.sql     #备份整个数据库
 ~~~
 ###导入
 ~~~
@@ -243,3 +244,4 @@ mysql -u用户名 -p数据库名称 < 库路径.sql
 ~~~
 source [sql文件路径]
 ~~~
+在sql下并切换到要还原的库下
